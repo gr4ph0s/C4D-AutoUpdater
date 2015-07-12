@@ -137,7 +137,14 @@ class updater():
         for files in self.fileToDownload:
             if files[1] == "None":
                 files[1] = ""
-            pathLocal  = os.path.join(self.dir,files[1],files[2])
+            split = files[1].split('/')
+            i = 0
+            pathLocal = self.dir
+            while i < len(split)-1:
+                pathLocal = os.path.join(pathLocal,split[i])
+                i += 1
+            pathLocal = os.path.join(pathLocal,files[2])
+            print pathLocal
             pathServer = self.server_URL_FOLDER + files[1] + files[2]
             #On télécharge le fichier et si y'a une erreur on arrête tout
             if self.downloadFile(pathServer,pathLocal) == False:
@@ -154,7 +161,7 @@ class updater():
         """
         pathLocalXML = os.path.join(self.dir, "version.xml")
         pathServerXML = os.path.join(self.dir, "version_from_server.xml")
-        if os.path.isfile(pathLocalXML) == True and os.path.isfile(pathServerlXML) == True:
+        if os.path.isfile(pathLocalXML) == True and os.path.isfile(pathServerXML) == True:
             shutil.copy(pathServerXML,pathLocalXML)
             os.remove(pathServerXML)
             return True
