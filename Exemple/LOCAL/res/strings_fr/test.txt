@@ -1,0 +1,1 @@
+Ceci est le fichier V1 dans res_Strings_fr

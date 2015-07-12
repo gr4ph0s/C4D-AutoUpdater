@@ -1,0 +1,10 @@
+<collection shelf="updater">
+<revision title="MainRevision">
+   <version>1</version>
+</revision>
+<file title="str_fr_test.txt">
+   <dir>res/strings_fr/</dir>
+   <fileName>test.txt</fileName>
+   <version>1</version>
+</file>
+</collection>
